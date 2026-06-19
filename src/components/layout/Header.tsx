@@ -60,15 +60,13 @@ export async function Header() {
 
           {session ? (
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full hover:ring-2 hover:ring-purple-500 hover:ring-offset-2 hover:ring-offset-slate-950 transition-all">
+              <DropdownMenuTrigger className="relative h-10 w-10 rounded-full hover:ring-2 hover:ring-purple-500 hover:ring-offset-2 hover:ring-offset-slate-950 transition-all focus:outline-none">
                   <Avatar className="h-10 w-10 border border-slate-800">
                     <AvatarImage src={session.user?.image || ""} alt={session.user?.name || ""} />
                     <AvatarFallback className="bg-purple-900 text-white font-bold">{session.user?.name?.[0]?.toUpperCase() || "U"}</AvatarFallback>
                   </Avatar>
-                </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border-slate-200 text-slate-900 shadow-xl rounded-xl" align="end" forceMount>
+              <DropdownMenuContent className="w-56 bg-white border-slate-200 text-slate-900 shadow-xl rounded-xl" align="end">
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium leading-none text-slate-900">{session.user?.name}</p>
@@ -85,8 +83,8 @@ export async function Header() {
                   <span>Orders</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-slate-100" />
-                <DropdownMenuItem asChild className="hover:bg-rose-50 focus:bg-rose-50 cursor-pointer text-rose-600">
-                  <Link href="/api/auth/signout">Log out</Link>
+                <DropdownMenuItem className="hover:bg-rose-50 focus:bg-rose-50 cursor-pointer text-rose-600">
+                  <Link href="/api/auth/signout" className="flex w-full">Log out</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
