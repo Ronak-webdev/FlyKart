@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Geist } from "next/font/google";
 import "./globals.css";
+
+export const dynamic = 'force-static';
 import { Header } from "@/components/layout/Header";
 import { MegaMenuNav } from "@/components/layout/MegaMenuNav";
 import { Footer } from "@/components/layout/Footer";
