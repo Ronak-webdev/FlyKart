@@ -7,7 +7,15 @@ import { Button } from "@/components/ui/button";
 
 const prisma = new PrismaClient();
 
-export default async function OrderDetailsPage({ params }: { params: { id: string } }) {
+export async function generateStaticParams() {
+  const orders = await prisma.order.findMany({ select: { id: true } });
+  return orders.map((order) => ({
+    id: order.id,
+  }));
+}
+
+export default async function OrderDetailsPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const session = await auth();
   if (!session?.user) redirect("/auth/login");
 

@@ -8,6 +8,13 @@ import { ChevronRight, SlidersHorizontal, ArrowDownAZ, CheckCircle2 } from "luci
 
 const prisma = new PrismaClient();
 
+export async function generateStaticParams() {
+  const categories = await prisma.category.findMany({ select: { slug: true } });
+  return categories.map((category) => ({
+    slug: category.slug,
+  }));
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function CategoryPage(props: { params: Promise<{ slug: string }>, searchParams: Promise<any> }) {
   const params = await props.params;
