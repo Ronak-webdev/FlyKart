@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 
 const prisma = new PrismaClient();
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const products = await prisma.product.findMany({ select: { slug: true } });
   return products.map((product) => ({

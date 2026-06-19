@@ -8,6 +8,8 @@ import { ChevronRight, SlidersHorizontal, ArrowDownAZ, CheckCircle2 } from "luci
 
 const prisma = new PrismaClient();
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const categories = await prisma.category.findMany({ select: { slug: true } });
   return categories.map((category) => ({

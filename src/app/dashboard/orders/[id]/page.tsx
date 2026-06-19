@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 
 const prisma = new PrismaClient();
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const orders = await prisma.order.findMany({ select: { id: true } });
   return orders.map((order) => ({
