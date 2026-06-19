@@ -52,7 +52,7 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
             </CardHeader>
             <CardContent>
               <div className="divide-y">
-                {order.items.map((item) => (
+                {order.items.map((item: any) => (
                   <div key={item.id} className="py-4 flex justify-between">
                     <div className="flex flex-col">
                       <span className="font-medium text-lg">{item.variant.product.name}</span>
@@ -74,7 +74,7 @@ export default async function OrderDetailsPage({ params }: { params: { id: strin
             </CardHeader>
             <CardContent>
               <div className="relative border-l-2 border-primary/30 ml-4 space-y-8 pb-4">
-                {order.statusHistory.map((history, i) => {
+                {order.statusHistory.map((history: any, i: number) => {
                   let Icon = Clock;
                   if (history.status === "CONFIRMED") Icon = CheckCircle2;
                   if (history.status === "PACKED") Icon = Package;

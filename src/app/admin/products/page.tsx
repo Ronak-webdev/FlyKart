@@ -56,9 +56,9 @@ export default async function AdminProductsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-              {products.map((product) => {
+              {products.map((product: any) => {
                 const defaultVariant = product.variants[0];
-                const totalStock = product.variants.reduce((acc, v) => acc + v.stockQty, 0);
+                const totalStock = product.variants.reduce((acc: number, v: any) => acc + v.stockQty, 0);
                 
                 return (
                   <tr key={product.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors group">

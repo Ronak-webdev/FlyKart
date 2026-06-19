@@ -45,7 +45,7 @@ export default async function CategoryPage(props: { params: Promise<{ slug: stri
     where: { categoryId: category.id, status: "ACTIVE" },
     select: { brand: true }
   });
-  const brands = Array.from(new Set(allProductsInCategory.map(p => p.brand)));
+  const brands = Array.from(new Set(allProductsInCategory.map((p: any) => p.brand)));
 
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20">
@@ -178,7 +178,7 @@ export default async function CategoryPage(props: { params: Promise<{ slug: stri
               </div>
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-                {products.map((product) => (
+                {products.map((product: any) => (
                   <ProductCard key={product.id} product={JSON.parse(JSON.stringify(product))} />
                 ))}
               </div>

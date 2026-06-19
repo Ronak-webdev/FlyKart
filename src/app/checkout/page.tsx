@@ -50,7 +50,7 @@ export default function CheckoutPage() {
       };
 
       const orderData = {
-        items: items.map(i => ({ variantId: i.id, quantity: i.quantity, unitPriceAtPurchase: i.price })),
+        items: items.map((i: any) => ({ variantId: i.id, quantity: i.quantity, unitPriceAtPurchase: i.price })),
         subtotal,
         deliveryFee,
         total,

@@ -48,7 +48,7 @@ export default async function CategoriesPage(props: {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
+          {products.map((product: any) => (
             <Link href={`/product/${product.slug}`} key={product.id} className="group rounded-xl border border-border bg-card overflow-hidden transition-all hover:shadow-lg flex flex-col">
               <div className="aspect-square bg-muted relative overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10" />

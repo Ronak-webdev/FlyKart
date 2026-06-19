@@ -14,14 +14,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     select: { slug: true }
   })
 
-  const productUrls = products.map((product) => ({
+  const productUrls = products.map((product: any) => ({
     url: `https://flykart.com/products/${product.slug}`,
     lastModified: product.updatedAt,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
 
-  const categoryUrls = categories.map((cat) => ({
+  const categoryUrls = categories.map((cat: any) => ({
     url: `https://flykart.com/categories/${cat.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,

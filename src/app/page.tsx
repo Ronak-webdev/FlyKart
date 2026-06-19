@@ -59,7 +59,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-4">
-            {categories.slice(0, 10).map((cat) => (
+            {categories.slice(0, 10).map((cat: any) => (
               <Link key={cat.id} href={`/categories/${cat.slug}`} className="group flex flex-col items-center text-center gap-3">
                 <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white dark:bg-slate-900 border-2 border-transparent group-hover:border-primary shadow-sm overflow-hidden relative transition-all group-hover:shadow-primary/20 group-hover:-translate-y-1">
                   <Image 
@@ -88,7 +88,7 @@ export default async function HomePage() {
         
         <div className="flex flex-col lg:flex-row gap-6">
           <div className="w-full lg:w-3/4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {dealProducts.map(p => <ProductCard key={p.id} product={JSON.parse(JSON.stringify(p))} />)}
+            {dealProducts.map((p: any) => <ProductCard key={p.id} product={JSON.parse(JSON.stringify(p))} />)}
           </div>
           {dealAds[0] && (
             <div className="w-full lg:w-1/4 hidden lg:block">
@@ -113,7 +113,7 @@ export default async function HomePage() {
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">Trending Right Now</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-6">
-              {trendingProducts.slice(0, 5).map(p => <ProductCard key={p.id} product={JSON.parse(JSON.stringify(p))} />)}
+              {trendingProducts.slice(0, 5).map((p: any) => <ProductCard key={p.id} product={JSON.parse(JSON.stringify(p))} />)}
             </div>
           </div>
         </section>
@@ -143,7 +143,7 @@ export default async function HomePage() {
         <section className="container mx-auto px-4 py-12">
           <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-8">All-Time Best Sellers</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {bestSellers.slice(0, 8).map(p => <ProductCard key={p.id} product={JSON.parse(JSON.stringify(p))} />)}
+            {bestSellers.slice(0, 8).map((p: any) => <ProductCard key={p.id} product={JSON.parse(JSON.stringify(p))} />)}
           </div>
         </section>
       </FadeIn>
@@ -156,7 +156,7 @@ export default async function HomePage() {
             <p className="text-muted-foreground text-lg">Don't just take our word for it. Here's what our customers have to say.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {testimonials.map((t) => (
+            {testimonials.map((t: any) => (
               <div key={t.id} className="bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border">
                 <div className="flex items-center gap-1 text-amber-400 mb-4">
                   {[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
@@ -181,7 +181,7 @@ export default async function HomePage() {
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-center text-sm font-bold tracking-widest uppercase text-muted-foreground mb-8">Trusted by Premium Brands</h2>
         <div className="flex flex-wrap justify-center items-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          {brands.map((b) => (
+          {brands.map((b: any) => (
             <div key={b.id} className="text-2xl font-black tracking-tighter">{b.name}</div>
           ))}
         </div>
@@ -194,7 +194,7 @@ export default async function HomePage() {
           <Link href="/blog" className="text-primary font-semibold hover:underline">View All Articles</Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
+          {blogs.map((blog: any) => (
             <Link key={blog.id} href={`/blog/${blog.slug}`} className="group flex flex-col gap-4">
               <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-muted">
                 <Image src={blog.imageUrl} alt={blog.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
