@@ -25,7 +25,7 @@ export default async function AdminDashboardPage() {
   ]);
 
   // Calculate mock revenue based on recent orders (assuming an active store)
-  const totalRevenue = recentOrders.reduce((sum, order) => sum + Number(order.total), 0) * 125; 
+  const totalRevenue = recentOrders.reduce((sum: number, order: any) => sum + Number(order.total), 0) * 125; 
 
   const metrics = [
     { title: "Total Revenue", value: `₹${totalRevenue.toLocaleString()}`, icon: DollarSign, trend: "+14.5% from last month", trendUp: true },
