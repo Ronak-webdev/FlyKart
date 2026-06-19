@@ -56,7 +56,7 @@ export default async function AdminOrdersPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-              {orders.map((order) => {
+              {orders.map((order: any) => {
                 const isPending = order.status === 'PENDING';
                 return (
                   <tr key={order.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
